@@ -1,4 +1,4 @@
-name: Deploymnet on PR Merge
+name: Deployment on PR Merge
 on:
   pull_request:
     branches:
