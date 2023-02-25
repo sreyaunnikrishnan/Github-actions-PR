@@ -1,4 +1,16 @@
-on
+
+name: Deployment on PR Merge
+on:
+  pull_request:
+    branches:
+      - master
   pull_request_review:
     types:
       - submitted
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    steps:
+    - name: PR Check
+      run: echo PR raised
