@@ -1,0 +1,29 @@
+name: Deploymnet on PR Merge
+on:
+  pull_request:
+    branches:
+      - master
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  approved:
+    if: github.event.review.state == 'approved'&&contains('**/_settings.json')
+    runs-on:windows-latest
+    steps:
+      - run: echo "This PR was approved"
+  job_2:
+    name:Conversion
+    
+    runs-on: windows_latest
+    steps:
+      - name:jsontotext
+        run:fromJSON(${_settings.json})
+       
+   job_3:
+    name:deployment:
+    
+    runs-on: windows_latest
+    steps:
+      - name: deploy 
+    
